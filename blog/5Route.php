@@ -13,5 +13,4 @@ Route::get('/', function () {
 // Route::view('/', 'welcome');
 
 Route::view('/blogs', 'post');
-
 ?>
