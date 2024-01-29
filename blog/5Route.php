@@ -10,6 +10,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/', 'welcome');
+// Route::view('/', 'welcome');
+
+Route::view('/blogs', 'post');
 
 ?>
