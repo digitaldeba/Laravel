@@ -80,8 +80,45 @@
 // })->where('id', '[0-9]+')->->where('comment', '[a-za-Z]+');
 
 
-// regex: 
+//* regex: 
 // for numbers only '[0-9]+',
 // for alphabetic only '[a-za-Z]+' 
+
+
+// // namespace
+
+// Route::get('/post', function () {
+//     return view('post');
+// })->name('mypost');
+
+// // * at view pages for href =>
+// // <a href="{{ route('mypost') }}">my post</a>
+
+
+// Route::redirect('/blogs','/post', 301);
+
+// // *301 for search engine directory communication optional for the base feature
+
+// // route groups
+
+// Route::prefix('page')->group(function(){
+
+//     Route::get('/post', function () {
+//         return view('post');
+//     })->name('mypost');
+
+//     Route::get('/breeze', function () {
+//         return view('breeze');
+//     });
+
+// });
+
+// // *  now the urls will be => page/post | post/breeze
+
+// // for page not found redirection
+
+// Route::fallback(function(){
+//     return "<h1>page not found</h1>";
+// });
 
 ?>
