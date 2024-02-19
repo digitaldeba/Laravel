@@ -22,8 +22,8 @@
 
 // Route::view('/blogs','post');
 
-// php artisan route:list --except-vendor [to see only outes you made]
-// php artisan route:list --path=post [to see only post routes you made]
+// php artisan route:list --except-vendor [to see only routes you made]
+// php artisan route:list --path=post [to see only post term related routes you made]
 
 
 // ---------vid 6,7-------------
