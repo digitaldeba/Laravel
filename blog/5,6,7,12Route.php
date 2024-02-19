@@ -22,8 +22,8 @@
 
 // Route::view('/blogs','post');
 
-// php artisan route:list --except-vendor [to see only routes you made]
-// php artisan route:list --path=post [to see only post term related routes you made]
+// php artisan route:list --except-vendor [to see only outes you made]
+// php artisan route:list --path=post [to see only post routes you made]
 
 
 // ---------vid 6,7-------------
@@ -122,5 +122,38 @@
 // });
 
 // ------------------- vid-12 -------------
+
+
+// // send value in route
+// // at view page
+// <ol>
+//     <li>{{ $user }}</li>
+//     <li>{{ $user2 }}</li>
+//     <li>{{ $user3 }}</li>
+// </ol>
+
+
+// Route::get('/breeze', function () {
+//     $bname = "raghav";
+
+//     return view('breeze', [
+//         'user' => $bname,
+//         'user2' => 'bname',
+//         'user3' => 'cname'
+//     ]);
+
+//     // return view('breeze')
+//     // ->with('user',$bname)
+//     // ->with('user2','bname')
+//     // ->with('user3','cname');
+    
+//     // return view('breeze')
+//     // ->withUser($bname)
+//     // ->withUser2('bname')
+//     // ->withUser3('cname');
+    
+// });
+
+
 
 ?>
