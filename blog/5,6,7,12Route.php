@@ -129,9 +129,9 @@
 // <ol>
 //     <li>{{ $user }}</li>
 //     <li>{{ $user2 }}</li>
-//     <li>{{ $user3 }}</li>
+//     <li>{{ !empty($user3) ? $user3 : 'no user3' }}</li>
+//     <li>{!! $user3 !!}</li>
 // </ol>
-
 
 // Route::get('/breeze', function () {
 //     $bname = "raghav";
@@ -139,20 +139,57 @@
 //     return view('breeze', [
 //         'user' => $bname,
 //         'user2' => 'bname',
-//         'user3' => 'cname'
+//         'user4' => '',
+//         'user3' => '<script>alert("Hakuna mata ta")</script>'
 //     ]);
 
 //     // return view('breeze')
 //     // ->with('user',$bname)
 //     // ->with('user2','bname')
 //     // ->with('user3','cname');
-    
+
 //     // return view('breeze')
 //     // ->withUser($bname)
 //     // ->withUser2('bname')
 //     // ->withUser3('cname');
+
+
+//     
+// });
+
+// ------------------- to send array -------------
+
+
+// // send value in route
+// // at view page
+
+// @foreach ($user as $id => $u)
+
+//     <h1>{{ $id }} {{ $u['name'] }} | {{ $u['phone'] }} | {{ $u['city'] }}</h1>
+//     |  <a href="{{ route('view.user', $id) }}">Show</a>
+
+// @endforeach
+
+
+// Route::get('/breeze', function () {
+
+//       $names = [
+
+//      1 => ['name' => 'Amitabh', 'phone' =>'9123456789', 'city'=>'Goa'],
+//      2 => ['name' => 'Salman', 'phone' =>'9123456789', 'city'=>'Delhi'],
+//      3 => ['name' => 'Sunny', 'phone' =>'9123456789', 'city'=>'Mumbai'],
+//      4 => ['name' => 'Akshay', 'phone' =>'9123456789', 'city'=>'Agra']
+
+//      ];
+  
+//     return view('breeze', ['user' => $names]);
+
     
 // });
+
+// Route::get('/user/{id}', function($id){
+//     return "<h1>User : ". $id ."</h1>";
+// })->name('view.user');
 
 
 
