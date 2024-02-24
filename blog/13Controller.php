@@ -47,6 +47,7 @@
 // <li class="nav-item"><a href="{{ route('blog') }}" class="navlink">Post</a></li>
 
 
+
 // // ---------- for single action controller (uses like constructor) ----------
 // php artisan make:controller TestingController --invokable
 
@@ -74,5 +75,7 @@
 
 // // -------- to see which route is targetted to which controller --------
 // php artisan route:list --except-vendor
+// // -------- want to look for specific route { name  with user }--------
+// php artisan route:list --path=user
 
 ?>
