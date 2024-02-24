@@ -159,6 +159,7 @@
 
 // ------------------- to send array -------------
 
+// ------------------- to see data of array and see id of concern data -------------
 
 // // send value in route
 // // at view page
@@ -170,7 +171,7 @@
 
 // @endforeach
 
-
+// at web.php
 // Route::get('/breeze', function () {
 
 //       $names = [
@@ -187,9 +188,74 @@
     
 // });
 
+
 // Route::get('/user/{id}', function($id){
 //     return "<h1>User : ". $id ."</h1>";
 // })->name('view.user');
+
+
+// ------------------- to see relevant data only of concern id -------------
+
+
+// // at view page
+
+// @foreach ($users as $id => $u)
+
+//     <h1>{{ $id }} {{ $u['name'] }} | {{ $u['phone'] }} | {{ $u['city'] }}</h1>
+//     |  <a href="{{ route('view.user', $id) }}">Show</a>
+
+// @endforeach
+
+// at web.php
+
+// Route::get('/breeze', function () {
+
+//       $names = [
+
+//      1 => ['name' => 'Amitabh', 'phone' =>'9123456789', 'city'=>'Goa'],
+//      2 => ['name' => 'Salman', 'phone' =>'9123456789', 'city'=>'Delhi'],
+//      3 => ['name' => 'Sunny', 'phone' =>'9123456789', 'city'=>'Mumbai'],
+//      4 => ['name' => 'Akshay', 'phone' =>'9123456789', 'city'=>'Agra']
+
+//      ];
+  
+//     return view('breeze', ['users' => $names]);
+
+    
+// });
+
+
+// Route::get('/user/{id}', function($id){
+//     return "<h1>User : ". $id ."</h1>";
+
+    // $names_array = [
+
+    //  1 => ['name' => 'Amitabh', 'phone' =>'9123456789', 'city'=>'Goa'],
+    //  2 => ['name' => 'Salman', 'phone' =>'9123456789', 'city'=>'Delhi'],
+    //  3 => ['name' => 'Sunny', 'phone' =>'9123456789', 'city'=>'Mumbai'],
+    //  4 => ['name' => 'Akshay', 'phone' =>'9123456789', 'city'=>'Agra']
+
+    //  ];
+    
+    // // abort_if wrong id passed
+    // abort_if(!isset($names_array[$id]), 404);
+
+
+    // $user = $names_array[$id];
+
+
+    // return view('user', ['id' => $user]);*
+
+// })->name('view.user');
+
+
+// * to view this at user.blade.php
+
+// <h1>users detail</h1>
+
+// <h3>Name: {{ $id['name'] }}</h3>
+// <h3>phone: {{ $id['phone'] }}</h3>
+// <h3>city: {{ $id['city'] }}</h3>
 
 
 
