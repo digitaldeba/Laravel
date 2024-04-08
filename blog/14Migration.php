@@ -54,6 +54,25 @@
 // php artisan migrate:fresh {drop}
 // // ------- to create model and migrate at once -------
 // php artisan make:model create_task_table -m
+// // ------- to create model and migrate at once -------
+// php artisan make:model task -m
 
+// * while creting table through model, if named task will create tasks table
+
+//--------------- vid-15 --------------//
+
+// ----------- to update table | add new column / field -----------
+// php artisan make:migration update_student_table --table=students
+
+// ------- go to concern file for above command -------
+//   public function up(): void
+//     {
+//         Schema::table('students', function (Blueprint $table) {
+//             //
+//             $table->string('city', 30);
+//         });
+//     }
+
+// php artisan migrate
 
 ?>
