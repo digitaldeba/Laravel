@@ -1,5 +1,6 @@
 <?php
-
+// 14 laravel 11 diff explained
+// ------ vid - 15 ------------
 // // ------------ to create migration table ------------
 // php artisan make:migration create_students_table
 
@@ -59,7 +60,7 @@
 
 // * while creting table through model, if named task will create tasks table
 
-//--------------- vid-15 --------------//
+//--------------- vid-16 --------------//
 
 // ----------- to update table | add new column / field -----------
 // php artisan make:migration update_student_table --table=students
