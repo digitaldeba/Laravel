@@ -94,6 +94,7 @@
 // $table->rename('from','to');
 // $table->drop('users');
 // Schema::dropifExists('users');
+// Schema::rename('from', 'to');
 
 // if(Schema::hasTable('users')){
 //     // The "users" table exists...
