@@ -76,4 +76,30 @@
 
 // php artisan migrate
 
+// ------ laravel modify collumn with migration ------
+// $table->renameColumn('from','to');  {works only on laravel 10, MySql > 8.0.3  and MariaDB > 10.5.2}
+
+// $table->dropColumn('city'); { to delete 1 column }
+// $table->dropColumn('city','avatar','location'); { to delete multi column }
+// $table->string('name',50)->change();
+// $table->intiger('votes')->unsigned()->default(1)->comment('my comment')->change();
+
+// -------- change column order | here after password collumn these 2 columns will be added ------
+// $table->after('paswword',function (Blueprint $table){
+//     $table->string('address',50);
+//     $table->string('city',30);
+// });
+
+// -------- modify table with migration --------
+// $table->rename('from','to');
+// $table->drop('users');
+// Schema::dropifExists('users');
+
+// if(Schema::hasTable('users')){
+//     // The "users" table exists...
+//  }
+
+// if(Schema::hasColumn('users','email')){
+//     // The "users" table exists and has an "email" column...
+//  }
 ?>
