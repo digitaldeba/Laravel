@@ -103,4 +103,76 @@
 // if(Schema::hasColumn('users','email')){
 //     // The "users" table exists and has an "email" column...
 //  }
+
+// -- ---------constraints and miodifier------- --
+
+public function up(): void {
+    Schema::create('students', function (Blueprint $table){
+        $table->intiger('student_id');
+        $table->string('name',30);
+        $table->string('email')->unique()->nullable();
+        $table->float('percentage',3,2)->comment('student percentage');
+        $table->primary('student_id');
+        $table->string('city')->default('no city');
+        $table->intiger('age')->unsigned();
+    });
+}
+
+
+//------------ vid 17 {primary, foreign key set} --------
+
+public function up(): void {
+    Schema::create('students', function (Blueprint $table){
+       $table->id();;
+        $table->string('name',30);
+        $table->string('email')->unique()->nullable();
+    });
+}
+
+// ----------after creation insert few data in students table--------
+
+step3
+php artisan make:migration carete_libraries_table
+
+step4
+public function up(): void {
+    Schema::create('libraries', function (Blueprint $table){
+        $table->id();
+        $table->insignedBigInteger('stu_id');
+        // ---- here the students table's id column is refered as foreign key 
+        $table->foreign('stu_id')
+              ->references('id')
+              ->on('students');
+              ->onUpdate('cascade');
+              ->onDelete('set null');
+
+        $table->string('book');
+        $table->date('due_date')->nullable;
+        $table->boolean('status');
+    });
+}
+
+step4
+php artisan migrate
+
+// -----now insert some data here too----
+
+// to unset foreign key
+
+step1
+php artisan make:migration update_library_table --table=libraries
+
+step2
+public function up(): void{
+    Schema:update('libraries', function (Blueprint $table){
+        $table->dropForeign(['student_id']);
+    })
+}
+
+step3
+php atrisan migrate:refresh
+
+
+// ----------- vid 18 {seeding / inserting fake data} --------
+
 ?>
