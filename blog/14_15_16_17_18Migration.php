@@ -175,4 +175,42 @@ php atrisan migrate:refresh
 
 // ----------- vid 18 {seeding / inserting fake data} --------
 
+step1
+php artisan make:model student
+
+step2
+php artisan make:seeder StudentSeeder
+
+step3
+go to database/seeders/StudentSeeder.php
+- here include student.php model
+
+class StudentSeeder extends Seeder
+{
+    public function run(): void
+    {
+        student::create([
+            'name' => 'radio.com';
+            'email' => 'ronin@gmail.com';
+        ])
+    }
+}
+
+- now go to database/seeders/DatabaseSeeder.php
+
+class Database extends Seeder
+{
+    public function run(); void
+    {
+        $this->call([
+            StudentSeeder::class
+        ]);
+    }
+}
+
+step4
+php artisan migration:refresh
+php artisan db:seed
+
+
 ?>
