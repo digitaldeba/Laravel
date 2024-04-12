@@ -213,4 +213,115 @@ php artisan migration:refresh
 php artisan db:seed
 
 
+step3 - part 2
+// ----------- {seeding multi fake data to student table  } --------
+
+class StudentSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $students = collect(
+            [
+                [
+                    'name' => 'radhika';
+                    'email' => 'radhika@gmail.com';
+                ],
+                [
+                    'name' => 'lebanon';
+                    'email' => 'lebanon@gmail.com';
+                ],
+                [
+                    'name' => 'baka';
+                    'email' => 'baka@gmail.com';
+                ],
+                [
+                    'name' => 'helena';
+                    'email' => 'helena@gmail.com';
+                ],
+            ]
+        );
+
+        $students->each(function($students){
+            student::insert($student);
+        });
+
+        // student::create([
+        //     'name' => 'radio.com';
+        //     'email' => 'ronin@gmail.com';
+        // ])
+    }
+}
+
+step4 - part 2
+php artisan migration:fresh --seed
+
+// if want to run a specific seeder file
+
+- now go to database/seeders/DatabaseSeeder.php
+
+class Database extends Seeder
+{
+    public function run(); void
+    {
+        $this->call([
+            StudentSeeder::class,
+            UserSeeder::class
+        ]);
+    }
+}
+
+php artisan db:seed --class=UserSeeder
+
+step3 paert 3
+// ----------- {seeding data json to student table  } --------
+
+- now go to database/json/students.json {here include the content}
+- go to database/seeders/StudentSeeder.php
+- here check if this path is include [use Illuminate\Support\Facades\File;]
+
+class StudentSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $json = File::(path:'database/json/students.json');
+        $students = collect(json_decode($json));
+
+        $students->each(function($student){
+            student::create([
+                'name' => $student->name,
+                'email' => $student->email
+            ])
+        });
+
+       
+    }
+}
+
+step4 - part 3
+php artisan migration:fresh --seed
+
+step3 paert 4
+// ----------- {seeding fake data to student table  } --------
+
+- now go to where create table is configured make sure timestamp() is included as column
+
+class StudentSeeder extends Seeder
+{
+    public function run(): void
+    {
+        for($i=1; $i<=10; $i++){
+                $students->each(function($student){
+                student::create([
+                    'name' => fake()->name,
+                    'email' => fake()->unique()->email
+                ])
+            });    
+        }       
+    }
+}
+
+step4 - part 3
+php artisan migration:fresh --seed
+
+
 ?>
