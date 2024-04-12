@@ -120,7 +120,7 @@ public function up(): void {
 
 
 //------------ vid 17 {primary, foreign key set} --------
-
+step1
 public function up(): void {
     Schema::create('students', function (Blueprint $table){
        $table->id();;
@@ -129,8 +129,8 @@ public function up(): void {
     });
 }
 
+step2
 // ----------after creation insert few data in students table--------
-
 step3
 php artisan make:migration carete_libraries_table
 
